@@ -19,8 +19,8 @@ class Plant:
     @staticmethod
     def validate_plant(plant):
         is_valid = True
-        if len(plant['name']) < 5:
-            flash("Name must be at least 5 characters.")
+        if len(plant['name']) < 2:
+            flash("Name must be at least 2 characters.")
             is_valid = False
         if len(plant['sciname']) < 5:
             flash("Scientific Name must be at least 5 characters.")

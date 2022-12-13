@@ -1,0 +1,19 @@
+.registrationform{
+    width: 400px;
+}
+.loginform{
+    width: 400px;
+    background-color: turquoise;
+}
+.header{
+    width: 600px;
+}
+.newplantform{
+    width: 400px;
+}
+.editplantform{
+    width: 400px;
+}
+.display{
+    width: 600px;
+}
