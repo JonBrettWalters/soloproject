@@ -38,4 +38,5 @@ class MySQLConnection:
 # this connectToMySQL function creates an instance of MySQLConnection, which will be used by server.py
 # connectToMySQL receives the database we're using and uses it to create an instance of MySQLConnection
 def connectToMySQL(db):
+    print(db)
     return MySQLConnection(db)

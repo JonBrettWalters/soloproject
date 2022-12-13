@@ -58,6 +58,7 @@ class User:
     def search_for_existing( cls, data ):
         query = "SELECT * FROM users WHERE email = %(email)s;"
         result = connectToMySQL('plant_app_schema').query_db(query, data)
+        print(result)
         if len(result) < 1:
             return False
         return True

@@ -20,7 +20,7 @@ def add_plant():
         "leafshape": request.form["leafshape"]
     }
     Plant.save(new_plant_info)
-    return redirect('/')
+    return redirect('/home')
 @app.route('/edit_plant/<int:id>', methods = ['POST'])
 def edit_plant(id):
     if not Plant.validate_plant(request.form):
@@ -32,7 +32,7 @@ def edit_plant(id):
         "leafshape": request.form["leafshape"]
     }
     Plant.edit(data)
-    return redirect('/')
+    return redirect('/home')
 @app.route('/plant/edit/<int:id>')
 def edit_plant_page(id):
     if 'user_id' not in session:
@@ -48,4 +48,4 @@ def delete_plant(id):
         'id': id
     }
     Plant.delete(data)
-    return redirect('/')
+    return redirect('/home')
