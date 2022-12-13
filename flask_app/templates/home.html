@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome {{ session['user_first'] }} {{ session['user_last'] }}!</h2>
+        <a href="/">Home</a> <a href="/plant/add">New Sighting</a> <a href="/logout">Log Out</a>
+    </div>
+    <div class="display">
+        <h3>All Sightings</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Scientific Name</th>
+                    <th>Leaf Shape</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for target_plant in all_plants %}
+                <tr>
+                    <td>{{ target_plant.name }}</td>
+                    <td>{{ target_plant.sciname }}</td>
+                    <td>{{ target_plant.leafshape }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="display">
+        <h3>Your Sightings</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Scientific Name</th>
+                    <th>Leaf Shape</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for this_plant in user_plants %}
+                <tr>
+                    <td>{{ this_plant.name }}</td>
+                    <td>{{ this_plant.sciname }}</td>
+                    <td>{{ this_plant.leafshape }}</td>
+                    <td> <a href="/plant/edit/{{ this_plant.id }}">Edit</a> <a href="/plant/delete/{{ this_plant.id }}">Delete</a> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

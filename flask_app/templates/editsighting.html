@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Sighting</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}     
+        {% if messages %}                            
+            {% for message in messages %}            
+                <p>{{message}}</p>                   
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="header">
+        <h2>Welcome {{ session['user_first'] }} {{ session['user_last'] }}!</h2>
+        <a href="/">Home</a> <a href="/plant/add">New Sighting</a> <a href="/logout">Log Out</a>
+    </div>
+    <div class="editplantform">
+        <h2>Edit Sighting</h2>
+        <form class="form" action="/edit_plant/{{ one_plant.id }}" method="post">
+            <label for="name" >Name: </label>
+            <input type="text" name="name" value="{{ one_plant.name }}">
+            <label for="sciname" >Scientific Name: </label>
+            <input type="text" name="sciname" value="{{ one_plant.sciname }}">
+            <label for="leafshape">Leaf Shape: </label>
+            <input type="text" name="leafshape" value="{{ one_plant.leafshape }}">
+            <button type="submit">Confirm Changes</button>
+        </form>
+    </div>
+</body>
+</html>
