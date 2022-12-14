@@ -19,8 +19,8 @@ class User:
     @staticmethod
     def validate_user(user):
         is_valid = True
-        if len(user['firstname']) < 3:
-            flash("First name must be at least 3 characters.")
+        if len(user['firstname']) < 1:
+            flash("First name must be filled in.")
             is_valid = False
         if len(user['lastname']) < 3:
             flash("Last name must be at least 3 characters.")
