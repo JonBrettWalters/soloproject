@@ -21,6 +21,7 @@
                     <th>Name</th>
                     <th>Scientific Name</th>
                     <th>Leaf Shape</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@
                     <td>{{ target_plant.name }}</td>
                     <td>{{ target_plant.sciname }}</td>
                     <td>{{ target_plant.leafshape }}</td>
+                    <td><a href="/plant/show/{{ target_plant.id }}">Show</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

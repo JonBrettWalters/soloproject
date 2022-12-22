@@ -49,3 +49,12 @@ def delete_plant(id):
     }
     Plant.delete(data)
     return redirect('/home')
+@app.route('/plant/show/<int:id>')
+def show_plant(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        'id': id
+    }
+    one_plant = Plant.get_one(data)
+    return render_template('showplant.html', one_plant = one_plant)

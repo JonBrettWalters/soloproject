@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleone.css') }}">
+    <title>{{ one_plant.name }}</title>
+</head>
+<body>
+    <div class="wholepage3">
+        <div class="header">
+            <h2>PlantPal</h2> <h3>Welcome {{ session['user_first'] }} {{ session['user_last'] }}!</h3>
+            <a href="/home">Home</a> <a href="/newplant">New Sighting</a> <a href="/logout">Log Out</a>
+        </div>
+        <div class="display">
+            <h3>{{ one_plant.name }}</h3>
+            <p>{{ one_plant.sciname }}</p>
+            <p>{{ one_plant.leafshape }}</p>
+        </div>
+    </div>
+</body>
+</html>
